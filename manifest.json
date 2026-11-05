@@ -89,6 +89,18 @@
       "group": "培训"
     },
     {
+      "id": "weixianpin-peixun-jieguo-luru",
+      "title": "危险品培训结果录入",
+      "path": "core/weixianpin-peixun-jieguo-luru.md",
+      "listed": true,
+      "group": "培训",
+      "resources": [
+        "assets/危险品录入/培训实施-一次性批量导入模版.xlsx",
+        "assets/危险品录入/培训实施-一次性批量导入模版.xls",
+        "scripts/weixianpin_peixun_jieguo_luru.py"
+      ]
+    },
+    {
       "id": "zizhi-daima",
       "title": "资质代码",
       "path": "core/zizhi-daima.md",
