@@ -224,6 +224,36 @@
     outline-offset: 2px;
 }
 
+.resource-embed {
+    list-style: none;
+    margin: 8px 0 0;
+}
+
+.resource-html {
+    border: 1px solid var(--soft-border);
+    background: var(--soft-surface);
+    padding: 8px 10px 10px;
+}
+
+.resource-html > summary {
+    cursor: pointer;
+    font-weight: 650;
+}
+
+.resource-html-actions {
+    margin: 8px 0 10px;
+    font-size: 13px;
+}
+
+.resource-html-frame {
+    display: block;
+    width: 100%;
+    min-height: 520px;
+    height: min(70vh, 720px);
+    border: 1px solid var(--soft-border);
+    background: #fff;
+}
+
 #memoList .nav-link:hover,
 #memoList .nav-link:focus-visible {
     border-color: var(--soft-border);

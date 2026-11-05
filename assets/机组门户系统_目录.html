@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>机组门户系统</title>
+<style>
+  :root {
+    --blue: #1b74ce;
+    --blue-dark: #165da5;
+    --bg: #f3f6fb;
+    --card: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --line: #e5eaf2;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    min-height: 100vh;
+  }
+  .wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 20px 18px 48px;
+  }
+  .toolbar {
+    margin: 0 0 12px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .toolbar input {
+    flex: 1;
+    min-width: 220px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 1rem;
+    outline: none;
+    background: var(--card);
+  }
+  .toolbar input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(27,116,206,.15); }
+  .btn {
+    border: 0;
+    border-radius: 12px;
+    padding: 12px 14px;
+    background: var(--blue);
+    color: #fff;
+    cursor: pointer;
+    font-size: .92rem;
+  }
+  .btn.secondary { background: #e8eef8; color: var(--blue-dark); }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 8px 10px 14px;
+    box-shadow: 0 6px 18px rgba(15, 40, 80, .04);
+  }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li.group { margin: 6px 0; }
+  li.group > details > summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 12px;
+    border-radius: 12px;
+    background: #f7faff;
+    border: 1px solid #e6eef9;
+    font-weight: 650;
+  }
+  li.group > details > summary::-webkit-details-marker { display: none; }
+  li.group > details > summary::before {
+    content: "▾";
+    color: var(--blue);
+    margin-right: 6px;
+  }
+  li.group > details:not([open]) > summary::before { content: "▸"; }
+  .g-title { flex: 1; }
+  .g-count {
+    color: var(--muted);
+    font-size: .8rem;
+    font-weight: 500;
+    background: #fff;
+    border-radius: 999px;
+    padding: 2px 8px;
+    border: 1px solid var(--line);
+  }
+  li.group > details > ul { padding: 6px 0 2px 14px; }
+  li.leaf {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border-bottom: 1px dashed #eef2f7;
+  }
+  li.leaf:hover { background: #f5f9ff; }
+  li.leaf.hot {
+    background: #fff8e8;
+    border: 1px solid #f0d48a;
+    border-bottom: 1px solid #f0d48a;
+    margin: 4px 0;
+  }
+  li.leaf.hot:hover { background: #fff3d6; }
+  li.leaf .num {
+    color: var(--blue);
+    font-variant-numeric: tabular-nums;
+    font-size: .82rem;
+    min-width: 2rem;
+  }
+  li.leaf .name { font-size: .98rem; }
+  li.leaf.hot .name { font-weight: 650; }
+  .badge {
+    margin-left: 8px;
+    font-size: .75rem;
+    color: #8a5a00;
+    background: #ffe6a8;
+    border: 1px solid #f0d48a;
+    border-radius: 999px;
+    padding: 1px 8px;
+    font-weight: 600;
+  }
+  li.hidden { display: none !important; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="toolbar">
+      <input id="q" type="search" placeholder="搜索功能名" />
+      <button class="btn secondary" type="button" id="expand">全部展开</button>
+      <button class="btn secondary" type="button" id="collapse">全部收起</button>
+    </div>
+
+    <div class="card">
+      <ul id="tree"><li class="group"><details open><summary><span class="g-title">机组信息管理</span><span class="g-count">26 项</span></summary><ul><li class="group"><details open><summary><span class="g-title">基本档案</span><span class="g-count">14 项</span></summary><ul><li class="leaf hot"><span class="num">01</span><span class="name">人员基本信息</span><span class="badge">常用</span></li><li class="leaf"><span class="num">02</span><span class="name">员工简历</span></li><li class="leaf hot"><span class="num">03</span><span class="name">人员基地</span><span class="badge">常用</span></li><li class="leaf"><span class="num">04</span><span class="name">人员驻地</span></li><li class="leaf"><span class="num">05</span><span class="name">人员护照</span></li><li class="leaf"><span class="num">06</span><span class="name">人员签证</span></li><li class="leaf"><span class="num">07</span><span class="name">人员电子健康合格证</span></li><li class="leaf"><span class="num">08</span><span class="name">员工健康等级</span></li><li class="leaf"><span class="num">09</span><span class="name">飞行新员工导入</span></li><li class="leaf"><span class="num">10</span><span class="name">离退人员数据截止</span></li><li class="leaf"><span class="num">11</span><span class="name">改装人员数据截止</span></li><li class="leaf"><span class="num">12</span><span class="name">统一员工视图</span></li><li class="leaf"><span class="num">13</span><span class="name">高级查询</span></li><li class="leaf"><span class="num">14</span><span class="name">检查单</span></li></ul></details></li><li class="group"><details open><summary><span class="g-title">资格管理</span><span class="g-count">4 项</span></summary><ul><li class="leaf hot"><span class="num">15</span><span class="name">人员岗位</span><span class="badge">常用</span></li><li class="leaf"><span class="num">16</span><span class="name">人员兼职级别</span></li><li class="leaf hot"><span class="num">17</span><span class="name">人员机型资格</span><span class="badge">常用</span></li><li class="leaf hot"><span class="num">18</span><span class="name">人员资格资历</span><span class="badge">常用</span></li></ul></details></li><li class="group"><details open><summary><span class="g-title">飞行限制</span><span class="g-count">6 项</span></summary><ul><li class="leaf"><span class="num">19</span><span class="name">人员限时信息</span></li><li class="leaf"><span class="num">20</span><span class="name">人员排班限制</span></li><li class="leaf"><span class="num">21</span><span class="name">人员不能同飞</span></li><li class="leaf"><span class="num">22</span><span class="name">飞行互斥配置</span></li><li class="leaf"><span class="num">23</span><span class="name">指定搭配规则</span></li><li class="leaf"><span class="num">24</span><span class="name">机组标签表</span></li></ul></details></li><li class="group"><details open><summary><span class="g-title">体检信息</span><span class="g-count">2 项</span></summary><ul><li class="leaf"><span class="num">25</span><span class="name">人员名单</span></li><li class="leaf"><span class="num">26</span><span class="name">体检计划表</span></li></ul></details></li></ul></details></li><li class="group"><details open><summary><span class="g-title">规则配置</span><span class="g-count">33 项</span></summary><ul><li class="group"><details open><summary><span class="g-title">航班参数管理</span><span class="g-count">9 项</span></summary><ul><li class="leaf"><span class="num">27</span><span class="name">航班基本信息</span></li><li class="leaf"><span class="num">28</span><span class="name">特殊航班配置</span></li><li class="leaf"><span class="num">29</span><span class="name">特殊航班类型配置</span></li><li class="leaf"><span class="num">30</span><span class="name">英语航线配置</span></li><li class="leaf"><span class="num">31</span><span class="name">精英航线配置</span></li><li class="leaf"><span class="num">32</span><span class="name">套餐航班配置</span></li><li class="leaf"><span class="num">33</span><span class="name">航班实力级别配置</span></li><li class="leaf"><span class="num">34</span><span class="name">外籍飞行员航线限制</span></li><li class="leaf"><span class="num">35</span><span class="name">特殊类型航班配置</span></li></ul></details></li><li class="group"><details open><summary><span class="g-title">机场管理</span><span class="g-count">2 项</span></summary><ul><li class="leaf"><span class="num">36</span><span class="name">机场资格配置</span></li><li class="leaf"><span class="num">37</span><span class="name">机场限制配置</span></li></ul></details></li><li class="group"><details open><summary><span class="g-title">基础档案</span><span class="g-count">11 项</span></summary><ul><li class="leaf"><span class="num">38</span><span class="name">国家信息</span></li><li class="leaf"><span class="num">39</span><span class="name">基地机型组信息</span></li><li class="leaf"><span class="num">40</span><span class="name">城市信息</span></li><li class="leaf"><span class="num">41</span><span class="name">机场信息</span></li><li class="leaf"><span class="num">42</span><span class="name">机型转换</span></li><li class="leaf"><span class="num">43</span><span class="name">护照类型配置</span></li><li class="leaf"><span class="num">44</span><span class="name">签证类型配置</span></li><li class="leaf"><span class="num">45</span><span class="name">资格类型配置</span></li><li class="leaf"><span class="num">46</span><span class="name">资格代码配置</span></li><li class="leaf"><span class="num">47</span><span class="name">机型组信息配置</span></li><li class="leaf"><span class="num">48</span><span class="name">机型信息配置</span></li></ul></details></li><li class="group"><details open><summary><span class="g-title">定员管理</span><span class="g-count">3 项</span></summary><ul><li class="leaf"><span class="num">49</span><span class="name">标准定员配置</span></li><li class="leaf"><span class="num">50</span><span class="name">搭班定员配置</span></li><li class="leaf"><span class="num">51</span><span class="name">特殊定员配置</span></li></ul></details></li><li class="group"><details open><summary><span class="g-title">休息设施等级管理</span><span class="g-count">3 项</span></summary><ul><li class="leaf"><span class="num">52</span><span class="name">休息设施等级机型配置</span></li><li class="leaf"><span class="num">53</span><span class="name">休息设施等级机尾号配置</span></li><li class="leaf"><span class="num">54</span><span class="name">休息设施等级航班号配置</span></li></ul></details></li><li class="group"><details open><summary><span class="g-title">自动搭班规则配置</span><span class="g-count">2 项</span></summary><ul><li class="leaf"><span class="num">55</span><span class="name">月目标小时修正</span></li><li class="leaf"><span class="num">56</span><span class="name">出勤率维护</span></li></ul></details></li><li class="group"><details open><summary><span class="g-title">自动排班规则配置</span><span class="g-count">1 项</span></summary><ul><li class="leaf"><span class="num">57</span><span class="name">置位人员限制</span></li></ul></details></li><li class="leaf"><span class="num">58</span><span class="name">基地驻地机场配置</span></li><li class="leaf"><span class="num">59</span><span class="name">连飞余度配置</span></li></ul></details></li><li class="group"><details open><summary><span class="g-title">数据监控</span><span class="g-count">11 项</span></summary><ul><li class="leaf"><span class="num">60</span><span class="name">资质与岗位不匹配</span></li><li class="leaf"><span class="num">61</span><span class="name">无CAPA/CAPB资格</span></li><li class="leaf"><span class="num">62</span><span class="name">无ACAP资格</span></li><li class="leaf"><span class="num">63</span><span class="name">驻地缺失</span></li><li class="leaf"><span class="num">64</span><span class="name">驻地冗余</span></li><li class="leaf"><span class="num">65</span><span class="name">60周岁及返聘人员</span></li><li class="leaf"><span class="num">66</span><span class="name">机长未失效副驾驶资格</span></li><li class="leaf"><span class="num">67</span><span class="name">无LVTO机长副驾驶</span></li><li class="leaf"><span class="num">68</span><span class="name">资质变动监控</span></li><li class="leaf"><span class="num">69</span><span class="name">有效机型</span></li><li class="leaf"><span class="num">70</span><span class="name">护照监控</span></li></ul></details></li><li class="group"><details open><summary><span class="g-title">后台管理</span><span class="g-count">9 项</span></summary><ul><li class="group"><details open><summary><span class="g-title">变更记录查询</span><span class="g-count">2 项</span></summary><ul><li class="leaf"><span class="num">71</span><span class="name">机组相关数据</span></li><li class="leaf"><span class="num">72</span><span class="name">系统参数配置</span></li></ul></details></li><li class="group"><details open><summary><span class="g-title">临时表</span><span class="g-count">7 项</span></summary><ul><li class="leaf"><span class="num">73</span><span class="name">人员岗位(ciic)</span></li><li class="leaf"><span class="num">74</span><span class="name">人员排班限制(ciic)</span></li><li class="leaf"><span class="num">75</span><span class="name">人员机型资格(ciic)</span></li><li class="leaf"><span class="num">76</span><span class="name">人员兼职级别(ciic)</span></li><li class="leaf"><span class="num">77</span><span class="name">人员资格资历(ciic)</span></li><li class="leaf"><span class="num">78</span><span class="name">人员基本信息(ciic)</span></li><li class="leaf"><span class="num">79</span><span class="name">人员基地(ciic)</span></li></ul></details></li></ul></details></li></ul>
+    </div>
+  </div>
+<script>
+const q = document.getElementById('q');
+const tree = document.getElementById('tree');
+function normalize(s){ return (s||'').toLowerCase(); }
+q.addEventListener('input', () => {
+  const kw = normalize(q.value.trim());
+  tree.querySelectorAll('li.leaf').forEach(li => {
+    const hit = !kw || normalize(li.textContent).includes(kw);
+    li.classList.toggle('hidden', !hit);
+  });
+  tree.querySelectorAll('li.group').forEach(g => {
+    const any = g.querySelector('li.leaf:not(.hidden)');
+    g.classList.toggle('hidden', !any);
+    if (any && kw) g.querySelector('details')?.setAttribute('open', '');
+  });
+});
+document.getElementById('expand').onclick = () => {
+  tree.querySelectorAll('details').forEach(d => d.open = true);
+};
+document.getElementById('collapse').onclick = () => {
+  tree.querySelectorAll('details').forEach(d => d.open = false);
+};
+</script>
+</body>
+</html>

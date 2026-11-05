@@ -182,11 +182,41 @@ function renderResources(file) {
   title.textContent = "配套资源";
   const list = document.createElement("ul");
   for (const path of paths) {
+    const href = new URL(path, document.baseURI).href;
+    const name = path.split("/").at(-1);
+    const isHtml = /\.html?$/i.test(path);
+
+    if (isHtml) {
+      const item = document.createElement("li");
+      item.className = "resource-embed";
+      const embed = document.createElement("details");
+      embed.className = "resource-html";
+      const summary = document.createElement("summary");
+      summary.textContent = name;
+      const actions = document.createElement("p");
+      actions.className = "resource-html-actions";
+      const openLink = document.createElement("a");
+      openLink.href = href;
+      openLink.target = "_blank";
+      openLink.rel = "noopener noreferrer";
+      openLink.textContent = "新标签打开";
+      actions.append(openLink);
+      const frame = document.createElement("iframe");
+      frame.className = "resource-html-frame";
+      frame.src = href;
+      frame.title = name;
+      frame.loading = "lazy";
+      embed.append(summary, actions, frame);
+      item.append(embed);
+      list.append(item);
+      continue;
+    }
+
     const item = document.createElement("li");
     const link = document.createElement("a");
-    link.href = new URL(path, document.baseURI).href;
+    link.href = href;
     link.textContent = path;
-    link.download = path.split("/").at(-1);
+    link.download = name;
     item.append(link);
     list.append(item);
   }

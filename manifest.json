@@ -103,15 +103,23 @@
       "group": "资质"
     },
     {
-      "id": "zizhi-luru-jiancha-yutishi",
-      "title": "资质录入检查预提示",
-      "path": "core/zizhi-luru-jiancha-yutishi.md",
+      "id": "jizu-menhu-xitong-luru-zhinan",
+      "title": "机组门户系统录入指南",
+      "path": "core/jizu-menhu-xitong-luru-zhinan.md",
       "listed": true,
       "group": "资质",
       "resources": [
+        "assets/机组门户系统_目录.html",
         "core/zizhi-daima.md",
         "core/teshu-jichang-zige-daima.md"
       ]
+    },
+    {
+      "id": "feixingbu-mianshi-tongbao-gengxin",
+      "title": "飞行部面试通报更新",
+      "path": "core/feixingbu-mianshi-tongbao-gengxin.md",
+      "listed": true,
+      "group": "资质"
     },
     {
       "id": "fujiashi-liuzhuan-gengxin",
