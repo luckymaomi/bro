@@ -1,7 +1,7 @@
-﻿(function () {
+(function () {
     "use strict";
 
-    var storageKey = "piyanzi.theme";
+    var storageKey = "baobao.theme";
     var defaultTheme = document.documentElement.dataset.defaultTheme === "dark" ? "dark" : "light";
     function normalizeTheme(value) {
         return value === "dark" || value === "light" ? value : defaultTheme;
@@ -40,7 +40,7 @@
             storeTheme(nextTheme);
         }
 
-        window.dispatchEvent(new CustomEvent("piyanzi:themechange", {
+        window.dispatchEvent(new CustomEvent("baobao:themechange", {
             detail: { theme: nextTheme }
         }));
 
@@ -59,7 +59,7 @@
         return setTheme(getTheme() === "dark" ? "light" : "dark");
     }
 
-    window.PiyanziTheme = {
+    window.BaobaoTheme = {
         getTheme: getTheme,
         setTheme: setTheme,
         toggleTheme: toggleTheme,

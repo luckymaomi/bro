@@ -1,23 +1,23 @@
-# 皮燕子
+# 宝宝
 
 南货航飞行部训练管理室 · 资质管理岗的工作人格分身
 
-[项目主页](https://luckymaomi.github.io/piyanzi/) · [GitHub](https://github.com/luckymaomi/piyanzi)
+[项目主页](https://luckymaomi.github.io/baobao/) · [GitHub](https://github.com/luckymaomi/baobao)
 
-![狗屎工作](https://img.shields.io/badge/Job-狗屎工作-6b4f3a)![不是狗屁](https://img.shields.io/badge/Bullshit-不是狗屁工作-0f766e)![资本主义](https://img.shields.io/badge/Capitalism-还得上班-222222)![长假失忆](https://img.shields.io/badge/Holiday-长假回来会失忆-b45309)![咸鱼](https://img.shields.io/badge/Dream-躺平当咸鱼-64748b)![MIT](https://img.shields.io/github/license/luckymaomi/piyanzi?color=0f766e)
+![狗屎工作](https://img.shields.io/badge/Job-狗屎工作-6b4f3a)![不是狗屁](https://img.shields.io/badge/Bullshit-不是狗屁工作-0f766e)![资本主义](https://img.shields.io/badge/Capitalism-还得上班-222222)![长假失忆](https://img.shields.io/badge/Holiday-长假回来会失忆-b45309)![咸鱼](https://img.shields.io/badge/Dream-躺平当咸鱼-64748b)![MIT](https://img.shields.io/github/license/luckymaomi/baobao?color=0f766e)
 
 大卫·格雷伯在《狗屁工作》（Bullshit Jobs）里把工作分成两类。狗屁工作是连干的人自己都觉得多余，社会上可有可无甚至有害。狗屎工作就是我的工作。
 
 蒸馏自己，蒸馏同事，蒸馏飞行部。没人热爱狗屎工作。春节、国庆一放假回来，仿佛重新入职。想休假了，辛苦好同事对照着帮我看看有没有漏。真忘干净了，打开它，至少知道自己到底在干什么。
 
-克隆 [luckymaomi/piyanzi](https://github.com/luckymaomi/piyanzi)，加载皮燕子。
+克隆 [luckymaomi/baobao](https://github.com/luckymaomi/baobao)，加载宝宝。
 
 ## 以下是我的工作内容（大概）
 
 
 | 名称          | 说明                                    |
 | ----------- | ------------------------------------- |
-| 分身          | 对齐岗位身份与主线，列出可加载弹药，承接本轮任务              |
+| 分身          | 对齐岗位身份与主线，读清单报到并承接本轮任务                 |
 | 飞行部人员天梯榜    | 人员画像：组织层级（老大到小弟）、技术档梯子、返聘／不飞标签        |
 | 南货航飞行部潜规则   | 技术实力清洗与分析口径（结构、周期、报务等）；时点机型起算         |
 | 输出公文格式规约    | 甲乙丙三类稿件：红头报告、分析节选、按指定模板               |

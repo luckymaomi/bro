@@ -22,7 +22,7 @@ test("新增清单项直接进入技能目录与合集，无需修改分身或�
 test("顶栏口令为克隆仓库并加载；合集带怎么用与目录；单篇只下原文", async () => {
   assert.equal(
     localPackPrompt(),
-    "克隆 https://github.com/luckymaomi/piyanzi ，并加载皮燕子",
+    "克隆 https://github.com/luckymaomi/baobao ，并加载宝宝",
   );
   const file = manifest.files.find(entry => entry.id === "waiji-daifei-pifu-hebing");
 

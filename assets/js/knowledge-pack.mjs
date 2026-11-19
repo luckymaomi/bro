@@ -1,9 +1,9 @@
 /** 启动口令与 Markdown 交付：单篇原文；合集／历史打包带用法与目录壳。 */
 import { businessCatalog, packOrderedFiles, resourcePaths } from "./catalog.mjs";
 
-/** 顶栏短口令：克隆仓库并加载皮燕子。 */
+/** 顶栏短口令：克隆仓库并加载宝宝。 */
 export function localPackPrompt() {
-  return "克隆 https://github.com/luckymaomi/piyanzi ，并加载皮燕子";
+  return "克隆 https://github.com/luckymaomi/baobao ，并加载宝宝";
 }
 
 const marker = file => `===== ${file.title}（${file.path}） =====`;
@@ -12,9 +12,9 @@ function usageBlock() {
   return [
     "## 怎么用",
     "",
-    "1. 克隆本仓库后加载皮燕子（或分身启动、加载分身，说法不挑）。",
-    "2. 先读 AGENTS，再读分身；按下方技能目录报名，点名某技能只读该篇正文。",
-    "3. 已有具体任务直接办，不必先念完整报法。",
+    "1. 克隆本仓库后加载宝宝（或宝贝、大宝贝、宝儿、小宝宝、琨哥、分身启动、加载分身，说法不挑）。",
+    "2. 总启时本轮实读 AGENTS、分身与 manifest，再按分身启动报法报名；点名某技能只读该篇正文。",
+    "3. 已有具体任务直接办，不必先做完整总启。",
     "4. 配套模板、脚本见文末仓库相对路径；原始业务表由主人另附。",
     "",
   ];
@@ -67,7 +67,7 @@ export async function buildHistoryMarkdown(manifest, loadRaw, stamp) {
     throw new Error("清单未配置 history，无法打包历史。");
   }
   const parts = [
-    `# ${manifest.name || "皮燕子"} · 历史打包`,
+    `# ${manifest.name || "宝宝"} · 历史打包`,
     "",
     `生成日期：${stamp}`,
     "",
