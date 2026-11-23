@@ -1,5 +1,5 @@
-# 项目: baobao
-# 定位: 宝宝 Skill 静态站（浏览 / 搜索 / 合集单文件下载）
+# 项目: bro
+# 定位: 小弟 Skill 静态站（浏览 / 搜索 / 合集单文件下载）
 # 页面: 原生 HTML + CSS + JavaScript
 # 渲染: marked + DOMPurify
 # 合集: 多篇 Markdown 合并为一个 .md
@@ -31,7 +31,7 @@ class LocalThreadingTCPServer(socketserver.ThreadingTCPServer):
 
 
 def open_browser(url: str) -> None:
-    print("[baobao] Opening local site...")
+    print("[bro] Opening local site...")
     if os.name == "nt":
         try:
             subprocess.Popen(["cmd", "/c", "start", "", "msedge", "--inprivate", url])
@@ -50,17 +50,17 @@ def serve(directory: Path, port: int, should_open: bool) -> None:
     server = create_server(directory, port)
     with server:
         url = f"http://localhost:{port}/index.html"
-        print(f"[baobao] Serving {directory} at {url}")
+        print(f"[bro] Serving {directory} at {url}")
         if should_open:
             open_browser(url)
         try:
             server.serve_forever()
         except KeyboardInterrupt:
-            print("\n[baobao] Server stopped.")
+            print("\n[bro] Server stopped.")
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Serve baobao locally.")
+    parser = argparse.ArgumentParser(description="Serve bro locally.")
     parser.add_argument("--port", type=int, default=PORT, help="Local HTTP port.")
     parser.add_argument("--no-open", action="store_true", help="Do not open browser.")
     parser.add_argument("--check", action="store_true", help="Validate paths and exit.")
@@ -149,20 +149,20 @@ def main() -> int:
         try:
             check_project(project_root)
         except (OSError, ValueError, KeyError, TypeError) as error:
-            print(f"[baobao] {error}", file=sys.stderr)
+            print(f"[bro] {error}", file=sys.stderr)
             return 1
-        print("[baobao] Manifest, skills, resources and page/module references verified.")
+        print("[bro] Manifest, skills, resources and page/module references verified.")
         return 0
 
     if not index_file.exists():
-        print("[baobao] index.html not found.", file=sys.stderr)
+        print("[bro] index.html not found.", file=sys.stderr)
         return 1
 
     try:
         serve(project_root, args.port, should_open=not args.no_open)
         return 0
     except OSError as error:
-        print(f"[baobao] Failed to start server: {error}", file=sys.stderr)
+        print(f"[bro] Failed to start server: {error}", file=sys.stderr)
         return 1
 
 

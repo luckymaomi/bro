@@ -1,7 +1,7 @@
 {
-  "name": "宝宝",
-  "packPrefix": "baobao",
-  "remoteSkillBase": "https://raw.githubusercontent.com/luckymaomi/baobao/master/",
+  "name": "小弟",
+  "packPrefix": "bro",
+  "remoteSkillBase": "https://raw.githubusercontent.com/luckymaomi/bro/master/",
   "history": [
     {
       "title": "飞行部数据挖掘_清洗与分析",

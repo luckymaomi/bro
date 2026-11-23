@@ -1,16 +1,16 @@
-# 宝宝
+# 小弟
 
-南货航飞行部训练管理室 · 资质管理岗的工作人格分身
+南货航飞行部训练管理室 · 资质管理岗的工作人格分身（自称小弟，对主人汇报）
 
-[项目主页](https://luckymaomi.github.io/baobao/) · [GitHub](https://github.com/luckymaomi/baobao)
+[项目主页](https://luckymaomi.github.io/bro/) · [GitHub](https://github.com/luckymaomi/bro)
 
-![狗屎工作](https://img.shields.io/badge/Job-狗屎工作-6b4f3a)![不是狗屁](https://img.shields.io/badge/Bullshit-不是狗屁工作-0f766e)![资本主义](https://img.shields.io/badge/Capitalism-还得上班-222222)![长假失忆](https://img.shields.io/badge/Holiday-长假回来会失忆-b45309)![咸鱼](https://img.shields.io/badge/Dream-躺平当咸鱼-64748b)![MIT](https://img.shields.io/github/license/luckymaomi/baobao?color=0f766e)
+![狗屎工作](https://img.shields.io/badge/Job-狗屎工作-6b4f3a)![不是狗屁](https://img.shields.io/badge/Bullshit-不是狗屁工作-0f766e)![资本主义](https://img.shields.io/badge/Capitalism-还得上班-222222)![长假失忆](https://img.shields.io/badge/Holiday-长假回来会失忆-b45309)![咸鱼](https://img.shields.io/badge/Dream-躺平当咸鱼-64748b)![MIT](https://img.shields.io/github/license/luckymaomi/bro?color=0f766e)
 
 大卫·格雷伯在《狗屁工作》（Bullshit Jobs）里把工作分成两类。狗屁工作是连干的人自己都觉得多余，社会上可有可无甚至有害。狗屎工作就是我的工作。
 
 蒸馏自己，蒸馏同事，蒸馏飞行部。没人热爱狗屎工作。春节、国庆一放假回来，仿佛重新入职。想休假了，辛苦好同事对照着帮我看看有没有漏。真忘干净了，打开它，至少知道自己到底在干什么。
 
-克隆 [luckymaomi/baobao](https://github.com/luckymaomi/baobao)，加载宝宝。
+克隆 [luckymaomi/bro](https://github.com/luckymaomi/bro)，加载小弟。
 
 ## 以下是我的工作内容（大概）
 

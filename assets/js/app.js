@@ -128,8 +128,8 @@ function closeMobileMenu() {
 }
 
 function syncThemeButtons() {
-  if (!window.BaobaoTheme) return;
-  const isDark = window.BaobaoTheme.getTheme() === "dark";
+  if (!window.BroTheme) return;
+  const isDark = window.BroTheme.getTheme() === "dark";
   const label = isDark ? "切换到白天模式" : "切换到暗夜模式";
   document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
     button.setAttribute("aria-label", label);
@@ -258,7 +258,7 @@ async function openFile(id) {
   }
 
   activeId = id;
-  document.title = `${file.title} - 宝宝`;
+  document.title = `${file.title} - 小弟`;
   markActive(id);
   els.content.textContent = "正在加载...";
 
@@ -306,7 +306,7 @@ async function packDownload() {
   try {
     const stamp = shanghaiDate();
     const markdown = await buildPackMarkdown(manifest, loadRaw, stamp);
-    triggerDownload(`我的宝宝-${stamp}.md`, markdown);
+    triggerDownload(`我的小弟-${stamp}.md`, markdown);
     setStatus("");
   } catch (error) {
     setStatus(error instanceof Error ? error.message : "合集下载失败");
@@ -323,7 +323,7 @@ async function historyDownload() {
   try {
     const stamp = shanghaiDate();
     const markdown = await buildHistoryMarkdown(manifest, loadRaw, stamp);
-    triggerDownload(`宝宝-历史打包-${stamp}.md`, markdown);
+    triggerDownload(`小弟-历史打包-${stamp}.md`, markdown);
     setStatus("");
   } catch (error) {
     setStatus(error instanceof Error ? error.message : "历史打包下载失败");
@@ -360,7 +360,7 @@ async function boot() {
     const res = await fetch(MANIFEST_URL);
     if (!res.ok) throw new Error(`清单加载失败：${res.status}`);
     manifest = validateManifest(await res.json());
-    els.brand.textContent = manifest.name || "宝宝";
+    els.brand.textContent = manifest.name || "小弟";
     fillPackPrompt();
     renderFullList();
 
@@ -376,10 +376,10 @@ async function boot() {
 
 document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
   button.addEventListener("click", () => {
-    window.BaobaoTheme?.toggleTheme();
+    window.BroTheme?.toggleTheme();
   });
 });
-window.addEventListener("baobao:themechange", syncThemeButtons);
+window.addEventListener("bro:themechange", syncThemeButtons);
 syncThemeButtons();
 
 els.pack.addEventListener("click", () => {

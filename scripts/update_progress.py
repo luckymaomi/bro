@@ -277,7 +277,7 @@ def apply_export(args):
     session = json.loads(Path(args.session).read_text(encoding="utf-8"))
     source = Path(args.source or session["source"]).resolve()
     export = Path(args.export).resolve()
-    output = Path(args.output).resolve() if args.output else ROOT / f"{source.stem}（由宝宝更新副驾驶和一二检数据截止{session['end']}）{source.suffix}"
+    output = Path(args.output).resolve() if args.output else ROOT / f"{source.stem}（由小弟更新副驾驶和一二检数据截止{session['end']}）{source.suffix}"
     report = Path(args.report).resolve() if args.report else None
     protected = {source, export, Path(args.session).resolve(), Path(session["query"]).resolve()}
     if report in protected or report == output or output in protected - {source}:
