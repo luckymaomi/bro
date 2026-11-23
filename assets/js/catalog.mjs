@@ -21,7 +21,16 @@ export function validateManifest(manifest) {
   for (const id of ["AGENTS", "fenshen"]) {
     if (!ids.has(id)) throw new Error(`清单缺少公共入口：${id}`);
   }
+  if (typeof manifest.name !== "string" || !manifest.name.trim()) {
+    throw new Error("清单缺少 name。");
+  }
+  if (typeof manifest.packPrefix !== "string" || !/^[a-z][a-z0-9-]*$/.test(manifest.packPrefix)) {
+    throw new Error("清单 packPrefix 须为小写英文标识（如 bro）。");
+  }
   if (!/^https?:\/\//.test(manifest.remoteSkillBase || "")) throw new Error("缺少远端资源地址 remoteSkillBase。");
+  if (!manifest.remoteSkillBase.includes(`/${manifest.packPrefix}/`)) {
+    throw new Error("remoteSkillBase 应与 packPrefix 同仓（路径含 /bro/ 等）。");
+  }
   if (manifest.history !== undefined) {
     if (!Array.isArray(manifest.history)) throw new Error("history 必须为列表。");
     for (const entry of manifest.history) {

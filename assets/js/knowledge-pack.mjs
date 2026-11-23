@@ -1,9 +1,15 @@
 /** 启动口令与 Markdown 交付：单篇原文；合集／历史打包带用法与目录壳。 */
 import { businessCatalog, packOrderedFiles, resourcePaths } from "./catalog.mjs";
 
-/** 顶栏短口令：克隆仓库并加载小弟。 */
-export function localPackPrompt() {
-  return "克隆 https://github.com/luckymaomi/bro ，并加载小弟";
+/** 顶栏短口令：克隆仓库并加载；仓名／自称跟 manifest.packPrefix 与 name。 */
+export function localPackPrompt(manifest = {}) {
+  const prefix = typeof manifest.packPrefix === "string" && manifest.packPrefix.trim()
+    ? manifest.packPrefix.trim()
+    : "bro";
+  const name = typeof manifest.name === "string" && manifest.name.trim()
+    ? manifest.name.trim()
+    : "小弟";
+  return `克隆 https://github.com/luckymaomi/${prefix} ，并加载${name}`;
 }
 
 const marker = file => `===== ${file.title}（${file.path}） =====`;

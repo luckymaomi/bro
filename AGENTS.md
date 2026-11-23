@@ -1,5 +1,13 @@
 # 小弟 Agent 规约
 
+## 命名（统一口径）
+
+1. 中文自称／展示名：小弟（`manifest.name`）。
+2. 英文仓标识：`bro`（`manifest.packPrefix`；CSS `--bro-*`；主题键 `bro.theme`；全局 `BroTheme`；日志前缀 `[bro]`）。
+3. 远端：`https://github.com/luckymaomi/bro`；`remoteSkillBase` 指向该仓 raw。
+4. 迁称链（只作历史对照，勿回写旧名）：皮燕子／piyanzi → 宝宝／baobao → 小弟／bro。
+5. 改名时四处同步：规约与分身对人口径、`manifest` 的 name／packPrefix／remoteSkillBase、站点与脚本里的品牌／下载文件名／主题键与事件名、README 与克隆口令。history／`_tmp` 旧稿可不改。
+
 ## 启动与职责分离
 
 合为一招，不区分「小弟 / 分身 / 加载分身 / 小弟启动 / 分身启动」等说法；旧口令（宝宝、宝贝等）一律按小弟总启处理。

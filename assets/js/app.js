@@ -258,7 +258,7 @@ async function openFile(id) {
   }
 
   activeId = id;
-  document.title = `${file.title} - 小弟`;
+  document.title = `${file.title} - ${manifest?.name || "小弟"}`;
   markActive(id);
   els.content.textContent = "正在加载...";
 
@@ -306,7 +306,7 @@ async function packDownload() {
   try {
     const stamp = shanghaiDate();
     const markdown = await buildPackMarkdown(manifest, loadRaw, stamp);
-    triggerDownload(`我的小弟-${stamp}.md`, markdown);
+    triggerDownload(`我的${manifest.name}-${stamp}.md`, markdown);
     setStatus("");
   } catch (error) {
     setStatus(error instanceof Error ? error.message : "合集下载失败");
@@ -323,7 +323,7 @@ async function historyDownload() {
   try {
     const stamp = shanghaiDate();
     const markdown = await buildHistoryMarkdown(manifest, loadRaw, stamp);
-    triggerDownload(`小弟-历史打包-${stamp}.md`, markdown);
+    triggerDownload(`${manifest.name}-历史打包-${stamp}.md`, markdown);
     setStatus("");
   } catch (error) {
     setStatus(error instanceof Error ? error.message : "历史打包下载失败");
@@ -335,12 +335,12 @@ async function historyDownload() {
 
 function fillPackPrompt() {
   if (!manifest || !els.packPrompt) return;
-  els.packPrompt.value = localPackPrompt();
+  els.packPrompt.value = localPackPrompt(manifest);
 }
 
 async function packCopyPrompt() {
   if (!manifest) return;
-  const text = localPackPrompt();
+  const text = localPackPrompt(manifest);
   try {
     await copyText(text);
     if (els.packPrompt) {
