@@ -180,6 +180,13 @@
       "path": "core/waiji-daifei-pifu-hebing.md",
       "listed": true,
       "group": "航季批复"
+    },
+    {
+      "id": "xiujia-suoban-qingxi",
+      "title": "休假锁班清洗",
+      "path": "core/xiujia-suoban-qingxi.md",
+      "listed": true,
+      "group": "配套事务"
     }
   ]
 }
