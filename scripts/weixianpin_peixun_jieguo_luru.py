@@ -128,14 +128,39 @@ def write_template(rows: pd.DataFrame, template: Path, output: Path) -> None:
     wb.save(output)
 
 
+def default_out_name(train_type: str, code: str, preview: bool) -> str:
+    """【飞行部】危险品初训/复训{编号}[（预检）].xlsx；编号须主人当轮给出。"""
+    tt = str(train_type).strip()
+    if tt not in {"初训", "复训"}:
+        raise SystemExit(f"培训类型须为初训或复训，收到: {train_type!r}")
+    code = str(code).strip()
+    if not code:
+        raise SystemExit("缺编号：请 --code 传入主人当轮告知的编号")
+    base = f"【飞行部】危险品{tt}{code}"
+    if preview:
+        base += "（预检）"
+    return f"{base}.xlsx"
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description="危险品培训结果一次性导入填表")
     ap.add_argument("--zong", required=True, help="总成绩.xlsx")
     ap.add_argument("--caac", required=True, help="CAAC飞行员信息导出")
     ap.add_argument("--shili", required=True, help="飞行实力表（含人员信息.危险品）")
-    ap.add_argument("--train-type", default="复训")
+    ap.add_argument("--train-type", required=True, choices=["初训", "复训"], help="培训类型：初训或复训")
+    ap.add_argument("--code", required=True, help="主人当轮告知的编号，如 20261117012")
+    ap.add_argument("--preview", action="store_true", help="预检：文件名加（预检）")
     ap.add_argument("--template", default=str(DEFAULT_TEMPLATE))
-    ap.add_argument("--out", required=True, help="输出 xlsx 路径")
+    ap.add_argument(
+        "--out",
+        default="",
+        help="输出 xlsx 完整路径；省略则落到仓库根，按【飞行部】危险品{类型}{编号}[（预检）].xlsx 命名",
+    )
+    ap.add_argument(
+        "--out-dir",
+        default="",
+        help="仅指定目录时与 --code/--train-type/--preview 拼默认文件名；与 --out 二选一优先 --out",
+    )
     args = ap.parse_args()
 
     rows = build_rows(
@@ -144,9 +169,14 @@ def main() -> None:
         Path(args.shili),
         args.train_type,
     )
-    write_template(rows, Path(args.template), Path(args.out))
+    if args.out:
+        out = Path(args.out)
+    else:
+        out_dir = Path(args.out_dir) if args.out_dir else REPO
+        out = out_dir / default_out_name(args.train_type, args.code, args.preview)
+    write_template(rows, Path(args.template), out)
     print(f"rows={len(rows)}")
-    print(f"out={args.out}")
+    print(f"out={out}")
     print(rows.groupby(["有效期开始时间", "有效期截止时间"]).size().to_string())
     print("培训结果:", rows["培训结果"].value_counts().to_dict())
 
