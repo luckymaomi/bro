@@ -129,7 +129,7 @@ def write_template(rows: pd.DataFrame, template: Path, output: Path) -> None:
 
 
 def default_out_name(train_type: str, code: str, preview: bool) -> str:
-    """【飞行部】危险品初训/复训{编号}[（预检）].xlsx；编号须主人当轮给出。"""
+    """【飞行部】危险品初训/复训{编号}[(预检)].xlsx；编号须主人当轮给出。"""
     tt = str(train_type).strip()
     if tt not in {"初训", "复训"}:
         raise SystemExit(f"培训类型须为初训或复训，收到: {train_type!r}")
@@ -138,7 +138,7 @@ def default_out_name(train_type: str, code: str, preview: bool) -> str:
         raise SystemExit("缺编号：请 --code 传入主人当轮告知的编号")
     base = f"【飞行部】危险品{tt}{code}"
     if preview:
-        base += "（预检）"
+        base += "(预检)"
     return f"{base}.xlsx"
 
 
@@ -149,12 +149,12 @@ def main() -> None:
     ap.add_argument("--shili", required=True, help="飞行实力表（含人员信息.危险品）")
     ap.add_argument("--train-type", required=True, choices=["初训", "复训"], help="培训类型：初训或复训")
     ap.add_argument("--code", required=True, help="主人当轮告知的编号，如 20261117012")
-    ap.add_argument("--preview", action="store_true", help="预检：文件名加（预检）")
+    ap.add_argument("--preview", action="store_true", help="预检：文件名加(预检)")
     ap.add_argument("--template", default=str(DEFAULT_TEMPLATE))
     ap.add_argument(
         "--out",
         default="",
-        help="输出 xlsx 完整路径；省略则落到仓库根，按【飞行部】危险品{类型}{编号}[（预检）].xlsx 命名",
+        help="输出 xlsx 完整路径；省略则落到仓库根，按【飞行部】危险品{类型}{编号}[(预检)].xlsx 命名",
     )
     ap.add_argument(
         "--out-dir",
