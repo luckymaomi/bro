@@ -54,6 +54,16 @@
       "group": "通识与挖数"
     },
     {
+      "id": "nanhuhang-renyuan-jiegou-baogao",
+      "title": "南货航人员结构报告",
+      "path": "core/nanhuhang-renyuan-jiegou-baogao.md",
+      "listed": true,
+      "group": "通识与挖数",
+      "resources": [
+        "scripts/nanhuhang_renyuan_jiegou_baogao.py"
+      ]
+    },
+    {
       "id": "shuchu-gongwen-geshi-guiyue",
       "title": "输出公文格式规约",
       "path": "core/shuchu-gongwen-geshi-guiyue.md",
