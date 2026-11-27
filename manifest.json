@@ -122,7 +122,12 @@
       "group": "资质",
       "resources": [
         "assets/机组门户系统_目录.html",
+        "templates/门户-人员基本信息录入模板.xlsx",
+        "templates/门户-人员基地录入模板.xlsx",
+        "templates/门户-人员岗位录入模板.xlsx",
+        "templates/门户-人员机型资格录入模板.xlsx",
         "templates/门户-人员资格资历录入模板.xlsx",
+        "assets/机组门户录入/原件/",
         "core/zizhi-daima.md",
         "core/teshu-jichang-zige-daima.md"
       ]
